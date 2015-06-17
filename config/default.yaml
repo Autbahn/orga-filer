@@ -1,0 +1,9 @@
+server:
+  port: 3000
+
+application:
+  title: 'orgaFiles'
+  jsonAllowed: 'true'
+  custom:
+    css: 'css/custom'
+    lib: 'lib/custom'
