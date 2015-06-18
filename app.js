@@ -9,8 +9,9 @@ var Config = require('config');
 var errorHandler = require('./middlewares/errorHandler');
 var customLibraryLoader = require('./lib/custom/customFileLoader');
 
-var routes = require('./routes/index');
+var indexRoute = require('./routes/index');
 
+var fileRoute = require('./routes/jsonRoutes/fileRoutes');
 var app = express();
 
 customLibraryLoader.loadCustomLibrariesFromDirectory(Config.application.custom.lib);
@@ -25,7 +26,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'ssssshhhhh'}));
 
-app.use('/', routes);
+var router = express.Router();
+
+indexRoute(router);
+fileRoute(router);
+app.use("/", router);
+
 
 app.use(errorHandler.err404);
 

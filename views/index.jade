@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  each file in products
-    img(src="#{file}")
+  div(ng-controller='FileListController')
+    ul
+      li(ng-repeat='file in files')
+        img(src='vfs/{{ file }}')

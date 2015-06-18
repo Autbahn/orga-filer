@@ -7,30 +7,30 @@ var q = require('q');
 var model;
 model = model || {};
 
-router.get('/', function (req, res) {
+module.exports = function(router) {
+    router.get('/', function (req, res) {
 
-    if(req.session)
+        if(req.session)
 
-    model.title = 'eCommFree';
+            model.title = 'eCommFree';
 
-    var styleList = [];
-    var filesInDir = [];
+        var styleList = [];
+        var filesInDir = [];
 
-    q.all([fileLoader.loadFilesAsList(
-        "public/" + Config.application.custom.css, "css", styleList)
-    ,
-    fileLoader.loadFilesAsList("/home/jan/", "", filesInDir), ]).then(function (results) {
+        q.all([fileLoader.loadFilesAsList(
+            "public/" + Config.application.custom.css, "css", styleList)
+            ,
+            fileLoader.loadFilesAsList("/home/jan/", "", filesInDir), ]).then(function (results) {
 
-        model.customStyles = {};
-        model.customStyles.baseDirectory = Config.application.custom.css;
-        model.customStyles.styles = results[0];
+            model.customStyles = {};
+            model.customStyles.baseDirectory = Config.application.custom.css;
+            model.customStyles.styles = results[0];
 
-        model.products = results[1];
+            model.products = results[1];
 
-        res.render('index', model);
+            res.render('index', model);
+        });
+
+
     });
-
-
-});
-
-module.exports = router;
+}
