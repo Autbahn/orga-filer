@@ -1,1 +1,1 @@
-var orgafilerApp = angular.module('orgafilerApp', []);
+angular.module('orgafilerApp', ['FileListService']);

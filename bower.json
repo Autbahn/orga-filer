@@ -4,16 +4,9 @@
   "version": "0.0.0",
   "homepage": "https://github.com/julum/orga-filer",
   "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "public/bower_components",
-    "test",
-    "tests"
-  ],
   "dependencies": {
     "angular": "~1.4.1",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "angular-mocks": "~1.4.1"
   }
 }

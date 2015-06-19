@@ -10,23 +10,17 @@ model = model || {};
 module.exports = function(router) {
     router.get('/', function (req, res) {
 
-        if(req.session)
-
-            model.title = 'eCommFree';
+        model.title = Config.application.title;
 
         var styleList = [];
-        var filesInDir = [];
 
         q.all([fileLoader.loadFilesAsList(
             "public/" + Config.application.custom.css, "css", styleList)
-            ,
-            fileLoader.loadFilesAsList("/home/jan/", "", filesInDir), ]).then(function (results) {
+        ]).then(function (results) {
 
             model.customStyles = {};
             model.customStyles.baseDirectory = Config.application.custom.css;
             model.customStyles.styles = results[0];
-
-            model.products = results[1];
 
             res.render('index', model);
         });

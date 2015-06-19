@@ -7,3 +7,6 @@ application:
   custom:
     css: 'css/custom'
     lib: 'lib/custom'
+
+baseDir:
+  path: '<enter your base path here>'
