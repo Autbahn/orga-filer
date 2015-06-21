@@ -6,4 +6,4 @@ var err404 = function(req, res, next) {
 
 module.exports = {
     err404: err404
-}
+};

@@ -1,4 +1,5 @@
-angular.module('orgafilerApp').controller('FileListController', ['$scope', 'FileListService', function ($scope, FileListService) {
+angular.module('orgafilerApp').controller('FileListController',
+    ['$scope', 'FileListService', function ($scope, FileListService) {
 
     var vm = this;
     vm.files = [];
@@ -9,6 +10,5 @@ angular.module('orgafilerApp').controller('FileListController', ['$scope', 'File
                 vm.files = data.files;
             });
     };
-
     vm.initFiles();
 }]);
