@@ -5,7 +5,9 @@ angular.module('orgafilerApp', [])
 
         FileListService.getAllFiles = function () {
 
-            return $http.get('/api/getFiles');
+            return $http.get('/api/getFiles', {
+                params: {"suffix": "png"}
+            });
 
         };
 

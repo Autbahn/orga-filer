@@ -1,5 +1,4 @@
 var should = require('should');
-var sandbox = require('sandboxed-module');
 var mockFs = require('mock-fs');
 var fileLoader = require('../../../lib/fileLoader');
 
@@ -8,7 +7,7 @@ before(function() {
     mockFs({
             'test/path' : {
                 'file1.js' : 'Test file content',
-                'file2.coffee' : 'Coffee content'
+                'file2.coffee': 'Coffee content',
             },
             'test/emptypath': {
             },

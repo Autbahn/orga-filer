@@ -47,7 +47,8 @@
     "mocha": "^2.2.5",
     "mock-fs": "^2.7.0",
     "mock-knex": "^0.2.1",
-    "sandboxed-module": "^2.0.0",
-    "should": "^6.0.3"
+    "sandboxed-module": "^2.0.2",
+    "should": "^6.0.3",
+    "sinon": "^1.15.3"
   }
 }
