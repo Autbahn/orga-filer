@@ -1,6 +1,6 @@
 var request = require('supertest');
 var app = require('express')();
-var errorHandler = require('../../..//middlewares/errorHandler');
+var errorHandler = require('../../../middlewares/errorHandler');
 var should = require('should');
 var hasThrown = false;
 
@@ -35,7 +35,7 @@ describe("errorHandlerTest", function() {
                 hasThrown.should.be.false;
                 done();
             });
-       }) 
+       });
     });
 
 });

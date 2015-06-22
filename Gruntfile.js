@@ -9,13 +9,18 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         jshint: {
-            files: ['Gruntfile.js', 'public/js/**/*.js', 'lib/**/*.js',
-                'middlewares/**/*.js'],
             options: {
                 maxlen: 100,
-                reporter: require('jshint-stylish')
-
-
+                ignores: ['test/coverage/**/*.js'],
+                reporter: require('jshint-stylish'),
+                expr: true
+            },
+            files: {
+                src: ['public/js/**/*.js', 'lib/**/*.js',
+                    'middlewares/**/*.js', 'routes/**/*.js', 'test/unit/**/*.js']
+            },
+            gruntfile: {
+                src: 'Gruntfile.js'
             }
         },
 
@@ -51,7 +56,59 @@ module.exports = function (grunt) {
                 ui: 'bdd',
                 reporter: 'spec'
             },
-            all: {src: ['test/**/*.js']}
+            coverage: {
+                src: ['test/**/*.js']
+            },
+            all: {
+                src: ['test/unit/**/*.js']
+            }
+        },
+
+        env: {
+            coverage: {
+                APP_DIR_FOR_CODE_COVERAGE: './test/coverage/instrument/app/'
+            }
+        },
+
+        clean: {
+            coverage: {
+                src: ['test/coverage/']
+            }
+        },
+
+        copy: {
+            views: {
+                expand: true,
+                flatten: true,
+                src: ['views/*'],
+                dest: 'test/coverage/instrument/app/views'
+            }
+        },
+
+
+        instrument: {
+            files: ['./app.js', './server.js', './routes/**/*.js',
+                './middlewares/**/*.js', './lib/**/*.js'],
+            options: {
+                lazy: true,
+                basePath: 'test/coverage/instrument/'
+            }
+        },
+
+        storeCoverage: {
+            options: {
+                dir: 'test/coverage/reports'
+            }
+        },
+
+
+        makeReport: {
+            src: 'test/coverage/reports/**/*.json',
+            options: {
+                type: 'lcov',
+                dir: 'test/coverage/reports',
+                print: 'detail'
+            }
         }
 
     });
@@ -59,9 +116,17 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-simple-mocha');
     grunt.loadNpmTasks('grunt-nodemon');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-istanbul');
+    grunt.loadNpmTasks('grunt-env');
 
-    grunt.registerTask('development', ['jshint', 'simplemocha']);
+    grunt.registerTask('development', ['jshint', 'simplemocha:all']);
 
     grunt.registerTask('start', ['development', 'nodemon']);
+
+    grunt.registerTask('coverage', ['jshint', 'clean',
+        'copy:views', 'env:coverage', 'instrument', 'simplemocha:coverage',
+        'storeCoverage', 'makeReport']);
 
 };

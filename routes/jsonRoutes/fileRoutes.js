@@ -8,8 +8,8 @@ module.exports = function(router) {
         var files = [];
         var suffix = '';
 
-        if (_.indexOf(Config.files.suffix.acceptedSuffixes, req.query["suffix"]) != -1) {
-            suffix = req.query["suffix"];
+        if (_.indexOf(Config.files.suffix.acceptedSuffixes, req.query.suffix) != -1) {
+            suffix = req.query.suffix;
         }
 
         fileLoader.loadFilesAsList(Config.baseDir.path, suffix, files).then(function (data) {
@@ -17,4 +17,4 @@ module.exports = function(router) {
             res.json(model);
         });
     });
-}
+};

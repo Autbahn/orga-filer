@@ -24,7 +24,8 @@ before(function() {
 
 describe("fileLoader Test", function() {
 
-    describe("When called with an directory with many files and one of the searched type", function() {
+    describe("When called with an directory with " +
+        "many files and one of the searched type", function () {
 
         it("it should return an array with the file", function (done) {
 
@@ -79,7 +80,8 @@ describe("fileLoader Test", function() {
         });
     });
 
-    describe("When called with an directory with more than one files but no of files of the type", function() {
+    describe("When called with an directory with more than one files " +
+        "but no of files of the type", function () {
         it("it should return an empty list", function (done) {
             var fileList = [];
             fileLoader.loadFilesAsList("test/path3", "js", fileList).then(function (data) {

@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  div(ng-controller='FileListController as fileListCtrl')
+  ul
+    li(ng-repeat="file in fileListCtrl.files")
+      p {{file}}

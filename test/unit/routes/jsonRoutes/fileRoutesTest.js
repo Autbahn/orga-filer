@@ -37,7 +37,7 @@ describe("FileRoute Test", function () {
 
                 // TODO
 
-            })
+            });
 
         });
 
