@@ -1,5 +1,6 @@
 # orga-filer
-![Build Status](https://travis-ci.org/julum/orga-filer.svg?branch=master)
+![Build Status](https://travis-ci.org/julum/orga-filer.svg?branch=master) 
+![Coverage Status](https://coveralls.io/repos/julum/orga-filer/badge.svg)
 
 OpenSource project for viewing and organizing files on your system from the browser.
 
