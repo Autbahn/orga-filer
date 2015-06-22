@@ -7,7 +7,7 @@ before(function() {
     mockFs({
             'test/path' : {
                 'file1.js' : 'Test file content',
-                'file2.coffee': 'Coffee content',
+                'file2.coffee': 'Coffee content'
             },
             'test/emptypath': {
             },
