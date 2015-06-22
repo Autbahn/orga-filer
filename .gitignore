@@ -4,8 +4,10 @@ node_modules
 public/bower_components
 config/*
 test/unit/lib/custom/*
+test/coverage
 lib/custom/*
 public/vfs/*
 
 !config/default.yaml
 !lib/custom/customFileLoader.js
+!test/coverage/reports/lcov.info
