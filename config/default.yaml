@@ -10,3 +10,11 @@ application:
 
 baseDir:
   path: '<enter your base path here>'
+
+files:
+  suffix:
+    include: ''
+    includeFilesWithNoSuffix: true
+    acceptedSuffixes: ['jpeg', 'png']
+  hidden:
+    includeHiddenFiles: true
