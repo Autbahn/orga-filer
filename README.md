@@ -1,5 +1,5 @@
 # orga-filer
-[![Build Status](https://travis-ci.org/julum/orga-filer.svg?branch=master)]
+![Build Status](https://travis-ci.org/julum/orga-filer.svg?branch=master)
 
 OpenSource project for viewing and organizing files on your system from the browser.
 
