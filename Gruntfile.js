@@ -124,7 +124,7 @@ module.exports = function (grunt) {
     grunt.registerTask('development', ['jshint', 'simplemocha:all']);
 
     grunt.registerTask('start', ['development', 'nodemon']);
-
+    grunt.registerTask('test', ['simplemocha:all']);
     grunt.registerTask('coverage', ['jshint', 'clean',
         'copy:views', 'env:coverage', 'instrument', 'simplemocha:coverage',
         'storeCoverage', 'makeReport']);
