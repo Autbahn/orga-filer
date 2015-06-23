@@ -27,3 +27,4 @@ Example:
 ## Start the application
 To start the application, go to the application base directory and run `node server.js`.
 Then type into your browser `<server-address>:3000` and you see the files of your set directory.
+Test test
