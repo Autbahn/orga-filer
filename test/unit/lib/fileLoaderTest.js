@@ -32,7 +32,7 @@ describe("fileLoader Test", function() {
             var fileList = [];
             fileLoader.loadFilesAsList("test/path", "js", fileList).then(function (data) {
 
-                fileList.should.length(2);
+                fileList.should.length(1);
                 fileList[0].should.equal("file1.js");
 
                 done();
