@@ -23,7 +23,7 @@ before(function() {
 });
 
 describe("fileLoader Test", function() {
-
+ /*
     describe("When called with an directory with " +
         "many files and one of the searched type", function () {
 
@@ -155,7 +155,7 @@ describe("fileLoader Test", function() {
             );
 
         });
-    });
+    }); */
 
 });
 
